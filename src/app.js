@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 
 const indexRouter = require('./routes/index');
-
+const actorsRoutes = require('./routes/actorsRoutes');
 const moviesRoutes = require('./routes/moviesRoutes');
 const genresRoutes = require('./routes/genresRoutes');
 const app = express();
@@ -15,6 +15,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.resolve(__dirname, '../public')));
 
 app.use('/', indexRouter);
+app.use(actorsRoutes);
 app.use(moviesRoutes);
 app.use(genresRoutes);
 
